@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showcase - NoteVault</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ===== Showcase Page Styles ===== */
+        .page-hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .showcase-filters {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.5rem;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-secondary);
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: rgba(124, 58, 237, 0.15);
+            border-color: var(--primary-color);
+            color: var(--text-primary);
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 20px 100px;
+        }
+
+        .showcase-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .showcase-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 40px rgba(124, 58, 237, 0.15);
+        }
+
+        .showcase-card-image {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .showcase-card-image .placeholder-graph {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .showcase-card-body {
+            padding: 1.5rem;
+        }
+
+        .showcase-card-body h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .showcase-card-body p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .showcase-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .showcase-category-badge {
+            padding: 0.3rem 0.8rem;
+            background: rgba(124, 58, 237, 0.15);
+            color: var(--primary-light);
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        /* Showcase Preview Styles */
+        .preview-note {
+            position: absolute;
+            background: rgba(30, 20, 50, 0.9);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 8px;
+            padding: 0.75rem;
+            font-size: 0.65rem;
+            color: var(--text-secondary);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .preview-note::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: 12px;
+            width: 8px;
+            height: 8px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--primary-color);
+        }
+
+        .preview-link {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            opacity: 0.5;
+        }
+
+        /* Testimonial Section */
+        .showcase-testimonials {
+            padding: 80px 20px;
+            background: linear-gradient(180deg, transparent, rgba(124, 58, 237, 0.03));
+        }
+
+        .showcase-testimonials .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .testimonial-text {
+            color: var(--text-secondary);
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-role {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <rect width="32" height="32" rx="8" fill="#7C3AED"/>
+                    <path d="M10 11C10 10.4477 10.4477 10 11 10H14C14.5523 10 15 10.4477 15 11V14C15 14.5523 14.5523 15 14 15H11C10.4477 15 10 14.5523 10 14V11Z" fill="white"/>
+                    <path d="M17 17C17 16.4477 17.4477 16 18 16H21C21.5523 16 22 16.4477 22 17V20C22 20.5523 21.5523 21 21 21H18C17.4477 21 17 20.5523 17 20V17Z" fill="white" opacity="0.7"/>
+                </svg>
+                <span>NoteVault</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="features.html" class="nav-link">Features</a>
+                <a href="showcase.html" class="nav-link active">Showcase</a>
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="community.html" class="nav-link">Community</a>
+            </div>
+            <div class="nav-actions">
+                <a href="#" class="nav-link">Sign In</a>
+                <a href="download.html" class="btn btn-primary">Download</a>
+            </div>
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <h1>Community <span class="gradient-text">Showcase</span></h1>
+        <p>Discover what people around the world are building with NoteVault.</p>
+    </section>
+
+    <!-- Filters -->
+    <div class="showcase-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="personal">Personal</button>
+        <button class="filter-btn" data-filter="academic">Academic</button>
+        <button class="filter-btn" data-filter="professional">Professional</button>
+        <button class="filter-btn" data-filter="creative">Creative</button>
+        <button class="filter-btn" data-filter="team">Team</button>
+    </div>
+
+    <!-- Showcase Grid -->
+    <div class="showcase-grid">
+        <!-- Showcase Card 1 -->
+        <div class="showcase-card" data-category="academic">
+            <div class="showcase-card-image">
+                <div class="placeholder-graph" style="background: linear-gradient(135deg, #1a1025, #2d1b4e);">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 120px; height: 120px;">
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background: radial-gradient(circle, rgba(124, 58, 237, 0.5), transparent); border-radius: 50%;"></div>
+                        <div style="position: absolute; top: 20%; left: 30%; width: 12px; height: 12px; background: #a78bfa; border-radius: 50%; box-shadow: 0 0 10px #a78bfa;"></div>
+                        <div style="position: absolute; top: 60%; left: 70%; width: 8px; height: 8px; background: #7c3aed; border-radius: 50%; box-shadow: 0 0 10px #7c3aed;"></div>
+                        <div style="position: absolute; top: 70%; left: 25%; width: 10px; height: 10px; background: #c4b5fd; border-radius: 50%; box-shadow: 0 0 10px #c4b5fd;"></div>
+                        <div style="position: absolute; top: 30%; left: 75%; width: 6px; height: 6px; background: #8b5cf6; border-radius: 50%; box-shadow: 0 0 10px #8b5cf6;"></div>
+                        <div style="position: absolute; top: 45%; left: 15%; width: 8px; height: 8px; background: #6d28d9; border-radius: 50%; box-shadow: 0 0 10px #6d28d9;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-card-body">
+                <h3>Research Knowledge Graph</h3>
+                <p>A comprehensive knowledge management system for doctoral research, linking 2,400+ academic papers.</p>
+                <div class="showcase-card-meta">
+                    <span class="showcase-category-badge">Academic</span>
+                    <span>2.4k notes</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Showcase Card 2 -->
+        <div class="showcase-card" data-category="personal">
+            <div class="showcase-card-image">
+                <div class="placeholder-graph" style="background: linear-gradient(135deg, #0f2027, #203a43);">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px;">
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background: radial-gradient(circle, rgba(16, 185, 129, 0.5), transparent); border-radius: 50%;"></div>
+                        <div style="position: absolute; top: 25%; left: 20%; width: 14px; height: 14px; background: #10b981; border-radius: 50%; box-shadow: 0 0 10px #10b981;"></div>
+                        <div style="position: absolute; top: 70%; left: 65%; width: 10px; height: 10px; background: #34d399; border-radius: 50%; box-shadow: 0 0 10px #34d399;"></div>
+                        <div style="position: absolute; top: 35%; left: 75%; width: 8px; height: 8px; background: #6ee7b7; border-radius: 50%; box-shadow: 0 0 10px #6ee7b7;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-card-body">
+                <h3>Digital Garden</h3>
+                <p>A living digital garden documenting personal growth, reading notes, and daily reflections over 3 years.</p>
+                <div class="showcase-card-meta">
+                    <span class="showcase-category-badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">Personal</span>
+                    <span>1.8k notes</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Showcase Card 3 -->
+        <div class="showcase-card" data-category="professional">
+            <div class="showcase-card-image">
+                <div class="placeholder-graph" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 110px; height: 110px;">
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50px; height: 50px; background: radial-gradient(circle, rgba(59, 130, 246, 0.5), transparent); border-radius: 50%;"></div>
+                        <div style="position: absolute; top: 20%; left: 25%; width: 12px; height: 12px; background: #3b82f6; border-radius: 50%; box-shadow: 0 0 10px #3b82f6;"></div>
+                        <div style="position: absolute; top: 75%; left: 70%; width: 10px; height: 10px; background: #60a5fa; border-radius: 50%; box-shadow: 0 0 10px #60a5fa;"></div>
+                        <div style="position: absolute; top: 40%; left: 80%; width: 8px; height: 8px; background: #93c5fd; border-radius: 50%; box-shadow: 0 0 10px #93c5fd;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-card-body">
+                <h3>Startup Runbook</h3>
+                <p>Complete operational knowledge base for a SaaS startup, including processes, documentation, and team wikis.</p>
+                <div class="showcase-card-meta">
+                    <span class="showcase-category-badge" style="background: rgba(59, 130, 246, 0.15); color: #3b82f6;">Professional</span>
+                    <span>3.1k notes</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Showcase Card 4 -->
+        <div class="showcase-card" data-category="creative">
+            <div class="showcase-card-image">
+                <div class="placeholder-graph" style="background: linear-gradient(135deg, #2d1b4e, #4c1d95);">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100px; height: 100px;">
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 45px; height: 45px; background: radial-gradient(circle, rgba(236, 72, 153, 0.5), transparent); border-radius: 50%;"></div>
+                        <div style="position: absolute; top: 20%; left: 30%; width: 10px; height: 10px; background: #ec4899; border-radius: 50%; box-shadow: 0 0 10px #ec4899;"></div>
+                        <div style="position: absolute; top: 65%; left: 70%; width: 8px; height: 8px; background: #f472b6; border-radius: 50%; box-shadow: 0 0 10px #f472b6;"></div>
+                        <div style="position: absolute; top: 45%; left: 15%; width: 12px; height: 12px; background: #f9a8d4; border-radius: 50%; box-shadow: 0 0 10px #f9a8d4;"></div>
+                        <div style="position: absolute; top: 75%; left: 35%; width: 6px; height: 6px; background: #fbbf24; border-radius: 50%; box-shadow: 0 0 10px #fbbf24;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-card-body">
+                <h3>Creative Writing Hub</h3>
+                <p>Character profiles, world-building, and plot outlines interconnected for a fantasy novel series.</p>
+                <div class="showcase-card-meta">
+                    <span class="showcase-category-badge" style="background: rgba(236, 72, 153, 0.15); color: #ec4899;">Creative</span>
+                    <span>980 notes</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Showcase Card 5 -->
+        <div class="showcase-card" data-category="team">
+            <div class="showcase-card-image">
+                <div class="placeholder-graph" style="background: linear-gradient(135deg, #1a0a2e, #3b1d7a);">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 110px; height: 110px;">
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 55px; height: 55px; background: radial-gradient(circle, rgba(245, 158, 11, 0.5), transparent); border-radius: 50%;"></div>
+                        <div style="position: absolute; top: 25%; left: 20%; width: 14px; height: 14px; background: #f59e0b; border-radius: 50%; box-shadow: 0 0 10px #f59e0b;"></div>
+                        <div style="position: absolute; top: 70%; left: 65%; width: 12px; height: 12px; background: #fbbf24; border-radius: 50%; box-shadow: 0 0 10px #fbbf24;"></div>
+                        <div style="position: absolute; top: 35%; left: 75%; width: 10px; height: 10px; background: #fde68a; border-radius: 50%; box-shadow: 0 0 10px #fde68a;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-card-body">
+                <h3>Engineering Wiki</h3>
+                <p>Team-wide knowledge base with system architecture docs, API references, and onboarding guides.</p>
+                <div class="showcase-card-meta">
+                    <span class="showcase-category-badge" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">Team</span>
+                    <span>5k notes</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Showcase Card 6 -->
+        <div class="showcase-card" data-category="personal">
+            <div class="showcase-card-image">
+                <div class="placeholder-graph" style="background: linear-gradient(135deg, #0f172a, #1e293b);">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90px; height: 90px;">
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 35px; height: 35px; background: radial-gradient(circle, rgba(14, 165, 233, 0.5), transparent); border-radius: 50%;"></div>
+                        <div style="position: absolute; top: 30%; left: 25%; width: 10px; height: 10px; background: #0ea5e9; border-radius: 50%; box-shadow: 0 0 10px #0ea5e9;"></div>
+                        <div style="position: absolute; top: 65%; left: 70%; width: 8px; height: 8px; background: #38bdf8; border-radius: 50%; box-shadow: 0 0 10px #38bdf8;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-card-body">
+                <h3>Learning System</h3>
+                <p>A spaced repetition and learning management system tracking courses, books, and skill development.</p>
+                <div class="showcase-card-meta">
+                    <span class="showcase-category-badge" style="background: rgba(14, 165, 233, 0.15); color: #0ea5e9;">Personal</span>
+                    <span>2.1k notes</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <section class="showcase-testimonials">
+        <div class="section-header">
+            <h2>Loved by <span class="gradient-text">Thousands</span></h2>
+            <p>See what our community has to say.</p>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"NoteVault completely changed how I organize my research. The graph view revealed connections between papers I never would have found."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">SK</div>
+                    <div>
+                        <div class="testimonial-name">Sarah Kim</div>
+                        <div class="testimonial-role">PhD Researcher</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"We switched our entire engineering wiki to NoteVault. The canvas mode and bi-directional links made documentation actually enjoyable."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">MR</div>
+                    <div>
+                        <div class="testimonial-name">Marcus Rivera</div>
+                        <div class="testimonial-role">VP Engineering, TechCorp</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"The local-first approach means my data is truly mine. Plus, the markdown support makes it future-proof. No vendor lock-in."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">AL</div>
+                    <div>
+                        <div class="testimonial-name">Aisha Laurent</div>
+                        <div class="testimonial-role">Technical Writer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to build your own <span class="gradient-text">knowledge base</span>?</h2>
+                <p>Download NoteVault and join thousands of thinkers worldwide.</p>
+                <div class="cta-actions">
+                    <a href="download.html" class="btn btn-large btn-primary btn-glow">
+                        Download Free
+                    </a>
+                    <a href="community.html" class="btn btn-large btn-outline">Join Community</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                            <rect width="32" height="32" rx="8" fill="#7C3AED"/>
+                            <path d="M10 11C10 10.4477 10.4477 10 11 10H14C14.5523 10 15 10.4477 15 11V14C15 14.5523 14.5523 15 14 15H11C10.4477 15 10 14.5523 10 14V11Z" fill="white"/>
+                        </svg>
+                        <span>NoteVault</span>
+                    </div>
+                    <p>A profoundly private, flexible writing tool.<br>Built around your notes, shaped by you.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Twitter">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="#" aria-label="GitHub">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <a href="features.html">Features</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="download.html">Download</a>
+                    <a href="#">Changelog</a>
+                    <a href="#">API</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <a href="#">Documentation</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="community.html">Community</a>
+                    <a href="#">Templates</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <a href="#">About</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NoteVault. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Filter functionality
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('.showcase-card').forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

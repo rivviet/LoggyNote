@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoggyNote - Your Second Brain, Reimagined</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <rect width="32" height="32" rx="8" fill="#7C3AED"/>
+                    <path d="M10 11C10 10.4477 10.4477 10 11 10H14C14.5523 10 15 10.4477 15 11V14C15 14.5523 14.5523 15 14 15H11C10.4477 15 10 14.5523 10 14V11Z" fill="white"/>
+                    <path d="M17 17C17 16.4477 17.4477 16 18 16H21C21.5523 16 22 16.4477 22 17V20C22 20.5523 21.5523 21 21 21H18C17.4477 21 17 20.5523 17 20V17Z" fill="white" opacity="0.7"/>
+                    <path d="M10 17C10 16.4477 10.4477 16 11 16H14C14.5523 16 15 16.4477 15 17V20C15 20.5523 14.5523 21 14 21H11C10.4477 21 10 20.5523 10 20V17Z" fill="white" opacity="0.5"/>
+                </svg>
+                <span>LoggyNote</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="features.html" class="nav-link">Features</a>
+                <a href="showcase.html" class="nav-link">Showcase</a>
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="community.html" class="nav-link">Community</a>
+            </div>
+            <div class="nav-actions">
+                <a href="#" class="nav-link">Sign In</a>
+                <a href="download.html" class="btn btn-primary">Download</a>
+            </div>
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="hero-grid"></div>
+            <div class="hero-glow"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Version 3.0 is here — Powered by AI
+            </div>
+            <h1 class="hero-title">
+                Your second brain,<br>
+                <span class="gradient-text">reimagined.</span>
+            </h1>
+            <p class="hero-subtitle">
+                A profoundly private, flexible writing tool crafted with care. 
+                Built around your notes, shaped by you.
+            </p>
+            <div class="hero-actions">
+                <a href="download.html" class="btn btn-large btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Download for Mac
+                </a>
+                <a href="features.html" class="btn btn-large btn-secondary">
+                    Explore Features
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                        <polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="hero-platforms">
+                <span>Available on</span>
+                <span class="platform">Mac</span>
+                <span class="platform">Windows</span>
+                <span class="platform">Linux</span>
+                <span class="platform">iOS</span>
+                <span class="platform">Android</span>
+                <span class="platform">Web</span>
+            </div>
+        </div>
+        <div class="hero-mockup">
+            <div class="mockup-window">
+                <div class="mockup-titlebar">
+                    <span class="mockup-dot red"></span>
+                    <span class="mockup-dot yellow"></span>
+                    <span class="mockup-dot green"></span>
+                </div>
+                <div class="mockup-content">
+                    <div class="mockup-sidebar">
+                        <div class="mockup-sidebar-item active">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            <span>Untitled</span>
+                        </div>
+                        <div class="mockup-sidebar-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            <span>Project Ideas</span>
+                        </div>
+                        <div class="mockup-sidebar-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            <span>Research Notes</span>
+                        </div>
+                        <div class="mockup-sidebar-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                            <span>Archive</span>
+                        </div>
+                    </div>
+                    <div class="mockup-editor">
+                        <div class="mockup-toolbar">
+                            <span class="toolbar-btn"><strong>B</strong></span>
+                            <span class="toolbar-btn"><em>I</em></span>
+                            <span class="toolbar-btn"><u>U</u></span>
+                            <span class="toolbar-btn">---</span>
+                            <span class="toolbar-btn">##</span>
+                        </div>
+                        <div class="mockup-text">
+                            <span class="text-heading"># Welcome to LoggyNote</span>
+                            <span class="text-paragraph">This is your second brain. A place to think, plan, and create.</span>
+                            <span class="text-paragraph">Start typing to capture your thoughts...</span>
+                            <br><br>
+                            <span class="text-heading">## Getting Started</span>
+                            <span class="text-list">- Create a new note with Cmd+N</span>
+                            <span class="text-list">- Link notes with [[double brackets]]</span>
+                            <span class="text-list">- Explore the graph view</span>
+                            <br>
+                            <span class="text-callout">💡 Tip: Use the command palette (Cmd+P) to access any feature quickly.</span>
+                        </div>
+                    </div>
+                    <div class="mockup-graph-panel">
+                        <div class="graph-node"></div>
+                        <div class="graph-node"></div>
+                        <div class="graph-node"></div>
+                        <div class="graph-node"></div>
+                        <div class="graph-node"></div>
+                        <div class="graph-line"></div>
+                        <div class="graph-line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By Section -->
+    <section class="trusted-by">
+        <div class="container">
+            <p class="trusted-title">Trusted by teams at</p>
+            <div class="logos">
+                <div class="logo-item">Google</div>
+                <div class="logo-item">Microsoft</div>
+                <div class="logo-item">Apple</div>
+                <div class="logo-item">Meta</div>
+                <div class="logo-item">Amazon</div>
+                <div class="logo-item">Netflix</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Preview Section -->
+    <section class="features-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Everything you need to <span class="gradient-text">think clearly</span></h2>
+                <p>LoggyNote is designed to help you connect ideas, discover insights, and think better — one note at a time.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/>
+                            <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/>
+                        </svg>
+                    </div>
+                    <h3>Bi-directional Links</h3>
+                    <p>Connect your notes seamlessly. See how everything relates in your knowledge base with backlinks and the graph view.</p>
+                    <a href="features.html#links" class="feature-link">Learn more →</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="3" y1="9" x2="21" y2="9"/>
+                            <line x1="9" y1="21" x2="9" y2="9"/>
+                        </svg>
+                    </div>
+                    <h3>Markdown Support</h3>
+                    <p>Write in plain text with full Markdown support. Format your thoughts with headers, lists, code blocks, and more.</p>
+                    <a href="features.html#markdown" class="feature-link">Learn more →</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M2 12h20"/>
+                            <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+                        </svg>
+                    </div>
+                    <h3>Local-First Privacy</h3>
+                    <p>Your notes stay on your device. We don't read, sell, or share your data. Your thoughts are yours alone.</p>
+                    <a href="features.html#privacy" class="feature-link">Learn more →</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                        </svg>
+                    </div>
+                    <h3>Plugin Ecosystem</h3>
+                    <p>Extend LoggyNote with community plugins. Customize every aspect to fit your workflow perfectly.</p>
+                    <a href="features.html#plugins" class="feature-link">Learn more →</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 010 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>Real-time Collaboration</h3>
+                    <p>Work together with your team in real-time. Share notes, co-edit documents, and stay in sync.</p>
+                    <a href="features.html#collaboration" class="feature-link">Learn more →</a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3>Canvas Mode</h3>
+                    <p>Free-form whiteboard for your ideas. Connect notes, images, and media on an infinite canvas.</p>
+                    <a href="features.html#canvas" class="feature-link">Learn more →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section class="demo-section">
+        <div class="container">
+            <div class="demo-content">
+                <div class="demo-text">
+                    <h2>Write in a way that <span class="gradient-text">feels natural</span></h2>
+                    <p>LoggyNote uses Markdown — the universal language of the web. No proprietary formats, no vendor lock-in.</p>
+                    <ul class="demo-list">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Support for headings, lists, tables, and code blocks</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Mathematical notation with LaTeX support</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Embed images, videos, and external content</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Dark and light themes to match your mood</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="demo-editor">
+                    <div class="demo-editor-header">
+                        <span class="demo-editor-dot red"></span>
+                        <span class="demo-editor-dot yellow"></span>
+                        <span class="demo-editor-dot green"></span>
+                        <span class="demo-editor-title">untitled.md</span>
+                    </div>
+                    <div class="demo-editor-body">
+                        <span class="line-number">1</span>
+                        <span class="line-content"># Hello, LoggyNote!</span>
+                        <span class="line-number">2</span>
+                        <span class="line-content"></span>
+                        <span class="line-number">3</span>
+                        <span class="line-content">This is a **powerful** note-taking experience.</span>
+                        <span class="line-number">4</span>
+                        <span class="line-content">Link to other notes: [[Project Ideas]]</span>
+                        <span class="line-number">5</span>
+                        <span class="line-content"></span>
+                        <span class="line-number">6</span>
+                        <span class="line-content">`javascript</span>
+                        <span class="line-content">console.log("Ready to create!");</span>
+                        <span class="line-number">7</span>
+                        <span class="line-content">`</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">10M+</div>
+                    <div class="stat-label">Users worldwide</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50K+</div>
+                    <div class="stat-label">Communities</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4,000+</div>
+                    <div class="stat-label">Plugins & Themes</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4.9/5</div>
+                    <div class="stat-label">User rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Loved by <span class="gradient-text">millions</span></h2>
+                <p>See what our community has to say about LoggyNote.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"LoggyNote completely changed how I organize my research. The bi-directional linking helps me discover connections I never knew existed."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #7C3AED, #A78BFA);">S</div>
+                        <div class="author-info">
+                            <div class="author-name">Sarah Chen</div>
+                            <div class="author-role">Research Scientist</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"The local-first approach gives me peace of mind. My notes are mine, always accessible, and I can use them anywhere."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #3B82F6, #60A5FA);">M</div>
+                        <div class="author-info">
+                            <div class="author-name">Marcus Rivera</div>
+                            <div class="author-role">Software Engineer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"I've tried every note-taking app out there. LoggyNote is the first one that actually stuck. The plugin ecosystem is incredible."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #10B981, #34D399);">E</div>
+                        <div class="author-info">
+                            <div class="author-name">Emma Thompson</div>
+                            <div class="author-role">Product Manager</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Start building your <span class="gradient-text">second brain</span> today</h2>
+                <p>Join millions of people who use LoggyNote to think better, work smarter, and stay organized.</p>
+                <div class="cta-actions">
+                    <a href="download.html" class="btn btn-large btn-primary btn-glow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Download Free
+                    </a>
+                    <a href="features.html" class="btn btn-large btn-outline">View All Features</a>
+                </div>
+                <p class="cta-note">Free forever for personal use. No account required.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                            <rect width="32" height="32" rx="8" fill="#7C3AED"/>
+                            <path d="M10 11C10 10.4477 10.4477 10 11 10H14C14.5523 10 15 10.4477 15 11V14C15 14.5523 14.5523 15 14 15H11C10.4477 15 10 14.5523 10 14V11Z" fill="white"/>
+                            <path d="M17 17C17 16.4477 17.4477 16 18 16H21C21.5523 16 22 16.4477 22 17V20C22 20.5523 21.5523 21 21 21H18C17.4477 21 17 20.5523 17 20V17Z" fill="white" opacity="0.7"/>
+                        </svg>
+                        <span>LoggyNote</span>
+                    </div>
+                    <p>A profoundly private, flexible writing tool.<br>Built around your notes, shaped by you.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Twitter">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="#" aria-label="GitHub">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Discord">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0822-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0822.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.0602.0602 0 00-.0312-.0286z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <a href="features.html">Features</a>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="download.html">Download</a>
+                    <a href="#">Changelog</a>
+                    <a href="#">Roadmap</a>
+                    <a href="#">API</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <a href="#">Documentation</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="community.html">Community</a>
+                    <a href="#">Templates</a>
+                    <a href="#">Plugins</a>
+                    <a href="#">Themes</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <a href="#">About</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Brand</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LoggyNote. All rights reserved.</p>
+                <p>Made with 💜 for thinkers everywhere.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
